@@ -1,0 +1,77 @@
+{
+  "productList": [
+    {
+      "productName": "r3ry",
+      "category": "Electronics",
+      "freshness": "Older one",
+      "price": 44,
+      "comments": "4",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 10
+    },
+    {
+      "productName": "44f",
+      "category": "Electronics",
+      "freshness": "Brand New",
+      "price": 44,
+      "comments": "6669",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 13
+    },
+    {
+      "productName": "r3r",
+      "category": "Electronics",
+      "freshness": "Second Handed",
+      "price": 44,
+      "comments": "4",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 14
+    },
+    {
+      "productName": "r3r",
+      "category": "Electronics",
+      "freshness": "Second Handed",
+      "price": 44,
+      "comments": "4",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 15
+    },
+    {
+      "productName": "bajaj",
+      "category": "Electronics",
+      "freshness": "Second Handed",
+      "price": 44,
+      "comments": "4",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 16
+    },
+    {
+      "productName": "twrdf",
+      "category": "Vegetable",
+      "freshness": "Second Handed",
+      "price": 345,
+      "comments": "67",
+      "date": "2022-10-12T18:30:00.000Z",
+      "id": 17
+    },
+    {
+      "productName": "eyu",
+      "category": "Electronics",
+      "freshness": "Older one",
+      "price": 56,
+      "comments": "567",
+      "date": "2022-10-11T18:30:00.000Z",
+      "id": 18
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
