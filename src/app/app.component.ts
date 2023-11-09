@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   }
   title = 'preptalksproject';
  ngOnInit(){
-  this.router.navigate(['login']);
+  // this.router.navigate(['login']);
     //  this.router.navigate(['ecommerce/home']);
 //  this.router.navigate(['portfolio']);
 
@@ -32,5 +32,7 @@ export class AppComponent implements OnInit{
     this.itwillopen=true;
      this.router.navigate(['/learning/home'])
   }
-  
+  gotologin(){
+    this.router.navigate(['/ecommerce/home']);
+  }
 }
