@@ -1,0 +1,238 @@
+.product-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    /*  */
+}
+
+.images-container {
+    width: 30%;
+}
+
+.ratings-on-image {
+    position: absolute;
+}
+
+/* offers */
+.offers-image {
+    width: 5%;
+}
+
+.offers-card1 {
+    width: 32%;
+    flex-shrink: 0;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 1.5%;
+}
+
+.offers-cards {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.offers-txt {
+    font-size: 14px;
+    font-family: Roboto medium;
+    align-items: center;
+}
+
+/* product details and the offers starte here  */
+.productdetails {
+    margin: 1%;
+    width: 68%;
+    word-wrap: break-word;
+    max-height: 530px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.productdetails::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.product-title {
+    font-family: Roboto medium;
+    font-size: 15px;
+}
+
+.company-link {
+    display: flex;
+    font-family: Roboto normal;
+    font-size: 12px;
+    color: blue;
+}
+
+.price {
+    font-family: Roboto medium;
+    font-size: 18px;
+    display: flex;
+}
+
+.old-price {
+    font-family: Roboto normal;
+    font-size: 13px;
+    margin-left: 2%;
+}
+
+.discount-txt {
+    font-family: Roboto medium;
+    font-size: 0.875rem;
+    margin-left: 2%;
+}
+
+.all-taxes {
+    font-family: Roboto normal;
+    font-size: 0.875rem;
+}
+
+/* product details and the offers starte here  */
+/* keyfeature css starts here  */
+.keyfeatures-main-iterate {
+    display: flex;
+}
+
+.slide-image {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.keyFeatures-main {
+    display: flex;
+    width: 99%;
+    margin: 1%;
+    overflow-x: hidden;
+}
+
+.keyfeature1 {
+    word-wrap: break-word;
+    flex-shrink: 0;
+    width: 30%;
+    text-align: center;
+}
+
+.keafeatures-img {
+    width: 20%;
+    margin-left: 37%;
+}
+
+.keyfeature-details {
+    color: blue;
+}
+
+/* specifications */
+.specific-heading {
+    border: 1px solid #e1dfdf;
+    border-radius: 2px;
+    padding: 1%;
+}
+
+.specification-details {
+    margin: 1%;
+
+}
+
+.specific-header {
+    width: 30%;
+    word-wrap: break-word;
+    margin-left: 2%;
+}
+
+.specifications,
+.ratings-and-reviews-main {
+    border: 1px solid #e1dfdf;
+    border-radius: 2px;
+}
+
+.specific-answer {
+    width: 70%;
+}
+
+/* ratings and reviews */
+.ratings-txt {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    padding-inline: 1%;
+    border-radius: 5px;
+}
+
+.ratings-img {
+    height: 12px;
+    margin-top: 15%;
+}
+
+.ratings-img1 {
+    width: fit-content;
+    padding-inline: 2%;
+    background: green;
+    color: whitesmoke;
+    margin-left: 56%;
+    border-radius: 5px;
+}
+
+.reviews-txt {
+    word-wrap: break-word;
+}
+
+.profile-img-brdr {
+    width: 9%;
+    border-radius: 50%;
+    border: 2px solid #fb8888;
+}
+
+.main-ratings-starts {
+    border: 1px solid #e1dfdf;
+}
+
+.user-reviews-disc {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 6%
+}
+
+@media only screen and (max-width:412px) {
+    .right-scroll {
+        display: none;
+    }
+
+    .offers-cards {
+        overflow: auto;
+    }
+
+    .product-title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .noshow{
+        display: none;
+    }
+
+    .offers-card1 {
+        width: 50%;
+    }
+
+    .productdetails {
+        display: inline-block;
+        width: 100%;
+        margin: 2%;
+    }
+
+    .product-container {
+        display: block;
+
+    }
+
+    .images-container {
+        width: 50%;
+        margin-left: 21%;
+    }
+}

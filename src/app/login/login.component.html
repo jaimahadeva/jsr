@@ -1,0 +1,53 @@
+
+<app-menu></app-menu>
+<div style="background-image: url('assets/milkyway.jpg');height: 91vh; width: 100%;">
+    <div>
+        <marquee behavior="10%" direction="left" class="col-12" style="color: aliceblue;">   Use 2210 2223 1223 for login with different ids </marquee>
+    </div>
+    <div class="login-container"
+        style="display: flex;justify-content: center;top: 15%;position: relative;width:50%;left:25%">
+        <form *ngIf="createNewAccount" [formGroup]="createAccount" (ngSubmit)="createAccountFun()" (change)="AcountValidators()">
+            <mat-form-field>
+                <input type="text" matInput placeholder="Enter firstName" formControlName="firstName"
+                    [(ngModel)]="userDetails.firstName">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Enter lastName" id="lastName" name="lastName"
+                    formControlName="lastName" [(ngModel)]="userDetails.lastName">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input type="email" matInput placeholder="Enter emailId" id="emailId" name="emailId"
+                    formControlName="emailId" [(ngModel)]="userDetails.emailId"><br>
+            </mat-form-field> <br>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Enter address" id="address" name="address"
+                    formControlName="address" [(ngModel)]="userDetails.address">
+            </mat-form-field><br>
+            <mat-form-field> <input type="password" matInput placeholder="Enter password" id="password"
+                    name="password" formControlName="password" [(ngModel)]="userDetails.password">
+            </mat-form-field> <br>
+            <button type="submit" class="login-btns dis-flx-jst-cntr" *ngIf="!this.validation" disabled>Create Account</button>
+            <button type="submit" class="login-btns dis-flx-jst-cntr" *ngIf="this.validation" [disabled]="this.valid">Create Account</button>
+            <span>Already Have Account ? </span><span style="color: blue"class="hand" (click)="gotologin()" > Login </span>
+        </form>
+       
+        <form  *ngIf="!createNewAccount">
+        <mat-form-field >
+            <input type="number" matInput placeholder="Enter Your UserId " id="userid" name="uderid" [(ngModel)]="this.userId">
+        </mat-form-field><br>
+        <mat-form-field >
+            <input type="text" matInput placeholder="Enter Your Password " id="Password" name="Password" [(ngModel)]="this.password">
+        </mat-form-field>
+    
+        <button type="submit" class="login-btns dis-flx-jst-cntr w-90" style=" margin-left: 4%;" (click)="loginByPassword()">Login</button>
+       
+    </form>
+    </div>
+
+
+
+
+
+
+</div>
+

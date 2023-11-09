@@ -1,0 +1,60 @@
+<header class="ecom-header" >
+  <button class="prepshop wbdr hand black" (click)="gotoPreshop()">
+    <i class="fa-solid fa-cart-shopping pt-lt-15"></i><br>
+    <span>PrepShop</span>
+  </button>
+  <button class="hello-address wbdr hand noshow black">
+    <div class="hello pd-lt-20">{{"Hello"}}</div>
+    <div class="select-address" style="width: 16rem;"> <img style="height: 20px;" src="assets/location-icon-red1.png"
+        title="Select Your Address" alt="location">Address </div>
+
+  </button>
+  <div class="search-engine hand">
+    <select class="select-search">
+      <option value=""> All</option>
+    </select>
+    <input class="search-item" type="text" placeholder="Search The Item Here">
+    <button class="search-icon-btn black" >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <div class="hello-address wbdr hand noshow" style="width: 12rem;">
+    <div *ngIf="this.username.length==0" class="hello">{{"User Name"}}</div>
+    <div *ngIf="this.username.length>0" class="hello">{{this.username}}</div>
+    <div class="select-address">Your Orders</div>
+  </div>
+  <div class="usericon wbdr hand noshow">
+    <!-- <i style="color:#baba70" class="fa-solid fa-cart-plus fa-beat-fade fa-xl"></i> -->
+    <i style="color:#baba70" class="fa-solid fa-cart-plus fa-xl"></i>
+  </div>
+  <div class="usericon wbdr hand noshow">
+    <i *ngIf="this.username.length>0" class="fa-solid fa-user fa-xl"></i>
+    <i *ngIf="this.username.length==0" class="fa-solid fa-user fa-beat-fade fa-xl"></i>
+
+  </div>
+</header>
+<div class="hamberger-main">
+  <div class="all-txt wbdr hand" (click)="openNav()">
+    <i class="fa-solid fa-bars"></i> <span style="margin-left: 2px;" >All </span>
+ </div>
+  <div class="subheadings hand noshow">
+    <button class="subheadings wbdr hand black"> Mobiles </button>
+    <button class="subheadings wbdr hand black" (click)="gotoSellProducts()"> Sell Your Product </button>
+    <button class="subheadings wbdr hand black"> Today's Best Deals </button>
+    <button class="subheadings wbdr hand black" (click)="offers()"> Offers </button>
+    <button class="subheadings wbdr hand black"> CashBacks </button>
+    <button class="subheadings wbdr hand black"> Customer Care </button>
+</div>
+  <div class="subheadings-video-tour wbdr hand">click here for a video tour </div>
+</div>
+
+
+<!-- side new starts -->
+<div id="mySidenav" class="sidenav"   [ngClass]="{'closesidenav':!opensidenav,'opensidenav':opensidenav}">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<!-- side nev ends-->

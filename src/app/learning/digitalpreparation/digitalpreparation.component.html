@@ -1,0 +1,159 @@
+<!-- ^(\s)*$\n to remove white spaces -->
+<app-menu></app-menu>
+<div class="col-sm-12" style="width: 100%;">
+  <div class="col-sm-4 leftside-conmtainer" style="padding-top: 10px;padding-bottom: 10px;" >
+     <div *ngIf="this.clickedCourseName==0" style="text-align: center; margin-top: 45vh;">
+        Please Click on the Course
+   </div>
+     <div class="col-md-12">
+      <form *ngIf="this.clickedCourseName!==0" (ngSubmit)="addNewTopic()" class="col-md-12">
+          <div class="col-md-12 form-group">
+              <label *ngIf="!makeAddnewTrue" class="col-md-3" style="cursor: pointer;" (click)="makeAddTopicTrue()"> Add Topic </label>
+              <input *ngIf="makeAddnewTrue" class="col-md-9"  style="width: 80%;padding-left: 4px;"type="text" name="question" id="question" class="form-control"
+              [(ngModel)]="addnewTopi.topicName">
+           </div> 
+          <span  *ngIf="makeAddnewTrue"   style="padding-left: 30px;cursor: pointer;" >
+              <button type="submit">submit</button>
+          </span>
+     </form>
+   <div class="col-12 topicnames-main" >
+    <div  [ngClass]="{'activecolor':topicNames.active }" (click)="getClickedTopicName(topicNames)" class="topicnames-txt" *ngFor="let topicNames of  this.allTopicNamesNew;let i =index " >
+      <span  style="left: 10px; position: relative;" *ngIf="this.clickedCourseName==topicNames.courseId">
+            {{topicNames.topicName | titlecase}} 
+      </span>
+    </div>
+  </div>
+    </div>
+  </div>
+   <div class="col-sm-8 bcc">
+      <div class="col-md-12" >
+     <div class="coursenames-main"  *ngFor="let courses of allCourseNames;let i =index"(click)="getClickedCourse(courses)">
+       <span class="row" style="float: left;padding: 20px;cursor: pointer;"> 
+          <span  class="coursename-txt" [ngClass]="{'activecolor1':courses.active}" style="padding:10px;border-radius: 7px;">{{courses.courseName}}
+   </span> </span>
+   
+
+
+     </div>
+  </div>
+     <form (ngSubmit)="addnewCourses()" class="col-md-12">
+        <div class="col-md-12 form-group">
+            <input  class="col-md-9"  style="width: 10%;padding-left: 4px;"type="text" name="question" id="question" class="form-control"
+            [(ngModel)]="addnewcourse.courseName">
+            <span >
+              <button style="text-align: center;" type="submit">submit</button>
+          </span>
+        </div> <br>
+    </form>
+  <div    class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewQuestion" style="font-family: Roboto boldItalic;font-size: 15px;" class="hand">
+      Add New Question
+  </div>
+  <div class="col-sm-12" style="padding-left: 5%;" *ngFor="let questions of digiQuestions;let i=index">
+      <div *ngIf="questions.topicId==this.addnewContentArray.topicId">
+        <div class="col-12 questions-main-div">
+          <span class="col-12 question-txt" (click)="showAnswer(questions)"> {{questions.questions}}</span>
+          <div style="padding: 6px;" *ngIf="!questions.view"> 
+              <pre style="width: 100%; min-height: max-content;" class="answers-text"      >
+              <span style="margin-left: -70px;">   {{questions.answers | titlecase}}</span> 
+             
+              </pre>
+
+       
+              <img (click)="showAnswer1(questions)" class="hand" src="assets/edit-ioc.svg.svg" alt="edit the answer" style="width: 22px;height: 27px;" data-bs-toggle="modal" data-bs-target="#editQuestionPopup">
+          </div>
+        </div> <br> 
+  </div>
+   </div>
+  </div>
+  </div>
+  <!-- popups -->
+  <div class="modal fade" id="addNewQuestion" tabindex="-1" role="dialog" aria-labelledby="addNewQuestion" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header header-class">
+            <h5 class="modal-title">Add A Question</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="addAquestionForm"  (ngSubmit)="onsibmit()" class="col-md-12">
+                  <div class="col-md-12 form-group">
+                      <label class="col-md-3"> Question </label><br>
+                      <input  class="col-md-9"  style="width: 70%;padding-left: 20px;"type="text" name="question" id="question" class="form-control"
+                      [(ngModel)]="digiAdd.questions" formControlName="question">
+                  </div> <br>
+                  <div class="col-md-12 form-group" >
+                      <label class="col-md-3"> Answer </label>
+                      <textarea  class="col-md-9" formControlName="answer" style="width: 70%;padding-left: 20px;" type="text" name="answer" id="answer" class="form-control"
+                      [(ngModel)]="digiAdd.answers"></textarea>
+
+               
+                  </div> <br>
+                  <div class="col-md-12" >
+                      <button [disabled]="addAquestionForm.invalid" data-bs-dismiss="modal" class="btn btn-primary" style="text-align: center;" type="submit">submit</button>
+                  </div>
+                 
+              </form>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editQuestionPopup" tabindex="-1" role="dialog" aria-labelledby="editQuestionPopup" aria-hidden="true" style="top: 16%;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header header-class">
+            <h5 class="modal-title">Edit or Delete the Question</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body txt-centre">
+            <form #questionsArrayForm="ngForm">
+              <div class="col-12" style="padding: 10px;">
+                 <div class="col-12">
+                   Question <br>
+                   <textarea name="questions"style="width: 100%;"  [(ngModel)]="this.questionsArray.questions"> {{ this.questionsArray.questions}} </textarea>
+             
+                 </div> 
+                 <div class="col-12 pd-tp-10">
+                  Answer <br>
+                  <textarea name="answers" style="width: 100%;height: fit-content;"  [(ngModel)]="this.questionsArray.answers">{{this.questionsArray.answers}} </textarea>
+
+                 </div>
+              </div>
+
+              <div class="col-12 pd-tp-10 txt-centre">
+               
+             
+                  <button class="btn btn-primary  hand" (click)="editQuestions(questionsArrayForm.value)" > Update </button>
+                  <button class="btn btn-danger  hand" style="margin-left: 36px;" (click)="editQuestions(questionsArrayForm.value)" > Delete </button>
+            
+              </div>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+<!-- <a href="geyuge" target="_blank">hghyg</a> -->
+<!-- <video  width="320" height="240" controls >
+  <source src="assets/movie.mp4"  type="video/mp4">
+</video> -->
+
+
+
+
+
+
+
+

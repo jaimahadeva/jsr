@@ -1,0 +1,45 @@
+.navbar{
+    display: flex;
+   
+}
+.items{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+.items li{
+    list-style: none;     
+    padding: 0.8rem;
+   border: 1px solid transparent;  
+}
+.items li:hover{
+    list-style: none;     
+   padding: 0.8rem;
+   border: 1px solid whitesmoke;  
+}
+.nav-items{
+   text-decoration: none;
+   color: white;   
+}
+
+.search{
+    background-color: blueviolet;
+    width: 50%;
+    text-align: right;
+}
+.photo{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bgphoto{
+    width: 33%;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,246 @@
+
+.ecom-header {
+    background-color: #160264;
+    height: 60px;
+    display: flex;
+    padding-bottom: 10px;
+    min-width: 100%;
+    width: 1263px;
+}
+
+.prepshop {
+    margin-left: 3%;
+    top: 6px;
+    position: relative;
+    width: 10rem;
+    font-family: Roboto medium;
+    font-size: 2rem;
+    padding: 3px;
+    color: aliceblue;
+}
+
+.usericon {
+    margin-left: 3%;
+    top: 6px;
+    position: relative;
+    width: 10rem;
+    font-family: Roboto medium;
+    font-size: 2rem;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.wbdr {
+    border: 1.5px solid transparent;
+    border-radius: 5px;
+}
+
+.wbdr:hover {
+    border: 1.5px solid white;
+}
+
+.hello-address {
+    margin-left: 1%;
+    top: 6px;
+    position: relative;
+    width: 18rem;
+    padding: 3px;
+    padding-left: 1.5rem;
+    color: aliceblue;
+
+
+}
+
+.hello {
+    font-family: Roboto medium;
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+.select-address {
+    font-family: Roboto medium;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    width: 12rem;
+}
+
+.search-engine {
+    display: flex;
+    margin-left: 1%;
+    top: 10px;
+    position: relative;
+    width: 2rem;
+    height: 40px;
+    width: 50rem;
+}
+
+.select-search {
+    background-color: #e6e6e6;
+    font-family: Roboto medium;
+    font-size: 1rem;
+    width: 6rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+}
+
+.search-item {
+    width: 40rem;
+
+}
+
+.search-icon-btn {
+    display: flex;
+    align-items: center;
+    color: black;
+    background: yellow;
+    width: 4rem;
+    padding: 1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hamberger-main {
+    background: #0f315b;
+    ;
+    height: 40px;
+    display: flex;
+
+    min-width: 100%;
+    color: white;
+    font-family: Roboto medium;
+    font-size: 1.5rem;
+    width: 1263px;
+
+}
+
+.all-txt {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-left: 3%;
+
+}
+
+.subheadings {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-family: Roboto normal;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+
+}
+
+.subheadings-video-tour {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-family: Roboto normal;
+    font-size: 1.5rem;
+    margin-left: 4%;
+    opacity: 0.8;
+}
+
+.maincontainer {
+
+    width: 100%;
+    max-width: fit-content;
+
+    display: flex;
+}
+
+.mainc-images {
+    justify-content: space-evenly;
+
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+    background-repeat: repeat-x;
+    height: 260px;
+}
+
+/* side navbar start */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:aliceblue;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .closesidenav{
+   width: 0px;
+  }
+  .opensidenav{
+    width: 250px;
+  }
+  /* mob */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }  
+
+/* side new ends */
+
+
+
+
+
+
+
+
+
+/* for mobile */
+@media only screen and (max-width:412px) {
+    .noshow {
+        display: none;
+    }
+
+    .search-engine {
+        width: 0%;
+    }
+
+    .ecom-header {
+        width: 100%;
+    }
+
+    .hamberger-main {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .search-item {
+        width: 18rem;
+    }
+}

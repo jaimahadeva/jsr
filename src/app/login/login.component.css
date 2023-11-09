@@ -1,0 +1,25 @@
+.login-container {
+  height: fit-content;
+  min-height: 30vh;
+  width: 40%;
+  background: gray;
+  border-radius: 0.5rem;
+  border-top: 5px solid #c44747;
+  border-bottom: 5px solid #ff0095;
+  background-image:
+    linear-gradient(#47c465, #00deff),
+    linear-gradient(#47c465, #00deff);
+  background-size: 5px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+}
+
+.login-btns {
+  background-color: #04AA6D;
+  color: white;
+  cursor: pointer;
+  margin-left: 15%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
