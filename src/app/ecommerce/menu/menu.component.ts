@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
   constructor(private preptalkService: PreptalkserviceService, private route: Router) { }
   username: any
   ngOnInit(): void {
-    this.username = this.preptalkService.userName
+    this.username = this.preptalkService.userDetails.firstName
 
   }
   offers() {

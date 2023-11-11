@@ -157,6 +157,17 @@
     font-family: Roboto medium;
     font-size: 18px;
 }
+.Rob-med-16{
+    font-family: Roboto medium;
+    font-size: 16px;
+}
+.Rob-med-12{
+    font-family: Roboto medium;
+    font-size: 12px;
+}
+.mar-left-8per{
+    margin-left: 8%;
+}
 .col-white{
     color: white;
 }
@@ -227,6 +238,14 @@
 }
 .link{
     color: blue;
+}
+.transparent-btn{
+    background: transparent;
+    border: none;
+}
+.dis-flex-around{
+  display: flex;
+  justify-content: space-around;
 }
 
 /* .noshow{

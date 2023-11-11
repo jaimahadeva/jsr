@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   }
   title = 'preptalksproject';
  ngOnInit(){
-  // this.router.navigate(['login']);
+  this.router.navigate(['login']);
     //  this.router.navigate(['ecommerce/home']);
 //  this.router.navigate(['portfolio']);
 

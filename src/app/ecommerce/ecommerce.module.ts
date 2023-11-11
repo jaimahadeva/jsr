@@ -8,6 +8,7 @@ import { EcomcontentComponent } from './ecomcontent/ecomcontent.component';
 import { OffersComponent } from './offers/offers.component';
 import { ProductspageComponent } from './productspage/productspage.component';
 import { SellproductsComponent } from './sellproducts/sellproducts.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,11 +18,13 @@ import { SellproductsComponent } from './sellproducts/sellproducts.component';
     EcomcontentComponent,
     OffersComponent,
     ProductspageComponent,
-    SellproductsComponent
+    SellproductsComponent,
+    
   ],
   imports: [
     CommonModule,
     EcommerceRoutingModule,
+    FormsModule
 
   ]
 })

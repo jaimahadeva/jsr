@@ -13,8 +13,10 @@ import { Globals } from './Globals';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { LoginModule } from './login/login.module';
+
 import { MenuModule } from './menu/menu.module';
+import { MenuComponent } from './menu/menu.component';
+
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
     declarations: [
@@ -22,12 +24,15 @@ import { MenuModule } from './menu/menu.module';
         SearchPracticePipe,
         PracticeComponent,
         FooterComponent,
+       
+       
     ],
     providers: [
         Globals
     ],
     bootstrap: [AppComponent],
     imports: [
+       
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
@@ -35,8 +40,8 @@ import { MenuModule } from './menu/menu.module';
         MenuModule,
         BrowserAnimationsModule,
         MatInputModule,
-        MatButtonModule,
-        // NgbModule
+        MatButtonModule
+  
     ]
 })
 export class AppModule { }

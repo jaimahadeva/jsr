@@ -8,6 +8,11 @@ import { Observable } from 'rxjs';
 export class PreptalkserviceService {
   [z: string]: any;
   userName:any=''
+  userDetails:any={
+    "firstName":"Bharat",
+    "lastName":"Mule",
+    "userId":5
+  }
   private newBaseUrl="http://localhost:8080";
 private baseUrl="http://localhost:8080/preptalk/v1";
 private userDetailsUrl= this.newBaseUrl+"/createAccount";
@@ -26,7 +31,6 @@ private userDetailsLoginUrl="http://localhost:8080/createAccount/login"
 
    //adding a new data from table 
    createaNewAccount(userDetails:PreptalkserviceService):Observable<Object>{
-   
     this.userName=userDetails['firstName']
     console.log("userDetails",this.userName);
     return this.httpclient.post(`${this.userDetailsUrl}`+"/submit",userDetails);
@@ -35,9 +39,13 @@ private userDetailsLoginUrl="http://localhost:8080/createAccount/login"
 
   loginByPassword(userDetails:PreptalkserviceService):Observable<Object>{
    return this.httpclient.post(`${this.userDetailsLoginUrl}`,userDetails);
-  }
+   }
   functt(){
     alert("okay")
   }
+  // getUserDetails(userNewDetails:any){
+  //    this.userDetails =userNewDetails;
+  //   return userNewDetails;
+  // }
 
 }
