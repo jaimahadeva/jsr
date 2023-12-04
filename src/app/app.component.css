@@ -1,0 +1,29 @@
+/*                   reviews         */
+.chatbot {
+    position: fixed;
+    bottom: 50%;
+    right: 1px;
+    padding: 8px;
+    background-color: rgb(249, 204, 204);
+    border-radius: 5px;
+    border: 0.8px solid black;
+}
+.hdr {
+    background-color: green;
+    color: white;
+}
+.reviews {
+    position: fixed;
+    top: 30%;
+    right: 4%;
+    width: 270px;
+    border-radius: 2%;
+    border: 2px solid #d700ff;
+    z-index: 10;
+}
+.reviewer-name-container {
+    padding: 3%;
+    margin: 3%;
+    display: grid;
+    gap: 10%;
+}
