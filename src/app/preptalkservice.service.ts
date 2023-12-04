@@ -13,10 +13,10 @@ export class PreptalkserviceService {
     "lastName":"Mule",
     "userId":5
   }
-  private newBaseUrl="http://localhost:8080";
+  private newBaseUrl="https://prepshopbackend.onrender.com";
 private baseUrl="http://localhost:8080/preptalk/v1";
 private userDetailsUrl= this.newBaseUrl+"/createAccount";
-private userDetailsLoginUrl="http://localhost:8080/createAccount/login"
+private userDetailsLoginUrl="https://prepshopbackend.onrender.com/createAccount/login"
   
   constructor(private httpclient:HttpClient) { }
 
