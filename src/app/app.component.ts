@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
       this.show=true
      }, 5000);
       // this.router.navigate(['ecommerce/sellproducts']);
-//  this.router.navigate(['portfolio']);
+ this.router.navigate(['login']);
    
   
  }
