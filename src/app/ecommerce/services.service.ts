@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class ServicesService {
 
   //  baseUrl = "http://localhost:8080";
-   baseUrl="https://proxy.cors.sh/https://prepshopbackend.onrender.com"
+   baseUrl="https://corsproxy.io/?https://prepshopbackend.onrender.com"
   addProductUrl = this.baseUrl + '/ecommerce/addNewProduct';
   getProductsByidUrl = this.baseUrl + '/ecommerce/getProductsListByuserId';
   searchedProductUrl = this.baseUrl + '/ecommerce/getSearchedProduct/';
