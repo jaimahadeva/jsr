@@ -18,14 +18,14 @@ export class PreptalkserviceService {
   }
 
   //                         deployement                           //
-  newBaseUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com";
-  baseUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com/preptalk/v1";
-  userDetailsLoginUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com/createAccount/login"
+  // newBaseUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com";
+  // baseUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com/preptalk/v1";
+  // userDetailsLoginUrl = "https://proxy.cors.sh/https://prepshopbackend.onrender.com/createAccount/login"
  //                         deployement                           //
 
-  //  newBaseUrl = "http://localhost:8080";
-  //  baseUrl = "http://localhost:8080/preptalk/v1";
-  // userDetailsLoginUrl= "http://localhost:8080/createAccount/login";
+   newBaseUrl = "http://localhost:8080";
+   baseUrl = "http://localhost:8080/preptalk/v1";
+  userDetailsLoginUrl= "http://localhost:8080/createAccount/login";
   
  userDetailsUrl = this.newBaseUrl + "/createAccount";
   constructor(private httpclient: HttpClient) { }
