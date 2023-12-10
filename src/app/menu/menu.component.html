@@ -1,0 +1,12 @@
+<div class="col-12 menu-main">
+  <div class="col-3 preptalk" (click)="gotoHome()">Preptalk</div>
+  <div class="col-3 learning" (click)="gotodigitalAngular()">Learning</div>
+  <button mat-button [matMenuTriggerFor]="menu" class="black">Projects</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="gotoEcomemrce()">E-Commerce</button>
+    <button mat-menu-item>Item fgfdg dryr 2</button>
+  </mat-menu>
+
+
+
+</div>
