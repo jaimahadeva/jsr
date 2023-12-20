@@ -1,0 +1,441 @@
+<div style="max-width: 100%;overflow: hidden;">
+    <app-menu></app-menu>
+</div>
+<!-- <div *ngIf="loader" style="width: 100%;height: 100%; background: rgb(149, 150, 149);">
+    <div style="position: relative; top: 50%;left: 40%;">
+        <button  class="btn btn-primary" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Data Calling...
+          </button>
+    </div>
+ </div> -->
+
+<div class="sell-products-main-container">
+    <div class="product-container" *ngIf="this.contentEditable">
+        <div class="images-container">
+            <img src="{{selectedImage}}" alt="selected image from view" style="width: 100%;height: 70%;">
+            <div class="small-images-main">
+                <div class="sub-images " *ngFor="let images of addAnewProductrequest.images;let imageindex=index">
+                    <div contenteditable="true" #imagess (input)="images.imagename=imagess.innerText"
+                        *ngIf="this.contentEditable && imageindex<=5">
+                        <img class="w-100 hand">
+                        <div class="dis-flex">
+                            <button class="ecommerce-btn-normal" (click)="addNewImage()"> + </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dis-flex-around mar-left-3per mar-top-3per">
+                <div class="pad-left-3per">
+                    <button class="ecommerce-btn-normal pad-left-3per">Edit Details</button>
+                </div>
+                <div *ngIf="!this.contentEditable">
+                    <button class="ecommerce-btn-normal pad-left-3per" (click)="addProduct()">Add Product</button>
+                </div>
+                <div *ngIf="this.contentEditable">
+                    <button class="ecommerce-btn-normal pad-left-3per" (click)="proceedToadd()">Procced To add </button>
+                </div>
+                <div >
+                    <button class="ecommerce-btn-normal pad-left-3per" (click)="one()">confirm </button>
+                </div>
+            </div>
+        </div>
+        <div class="productdetails">
+            <div>
+                <!-- path -->
+                <div class="product-title" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                    id="disceditable" #description (input)="addAnewProductrequest.desciption = description.innerText">
+                    Add Product Description
+                </div>
+                <div class="dis-flex mar-2 link">
+                    <div [ngClass]="{'disabled':this.contentEditablew===false}" contenteditable="true" #w
+                        (input)="addAnewProductrequest.store = w.innerText"> company link </div>
+                    <div class="mar-left-1per"> Ratings </div>
+                    <div class="mar-left-1per"> 33 QnA</div>
+                    <div class="mar-left-1per" *ngIf="this.contentEditable" contenteditable="true" #cate
+                        (input)="addAnewProductrequest.category=cate.innerText"> Category</div>
+                    <div class="mar-left-1per" *ngIf="this.contentEditable" contenteditable="true" #product
+                        (input)="addAnewProductrequest.productname=product.innerText"> productname</div>
+                </div>
+            </div>
+            <hr>
+            <div class="mar-top-1per discout">
+                <div class="price">
+                    <div contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}" #z
+                        (input)="addAnewProductrequest.oldprice = z.innerText"> New price </div>
+                    <del class="old-price" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                        #newprice1 (input)="addAnewProductrequest.newprice = newprice1.innerText">Old price</del>
+                    <div class="discount-txt" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                        #disc (input)="addAnewProductrequest.discount = disc.innerText"> discount </div>
+                </div>
+                <div class="all-taxes"> Inclusive of all taxes </div>
+                <div >
+                    Total items Available :
+                    <label for="itemsleft"></label>
+                    <input type="number" id="itemsleft" style="width: 50px" name="itemsleft" [(ngModel)]="addAnewProductrequest.itemsLeft">
+                </div>
+            </div>
+            <hr>
+            <!-- offers starts -->
+            <div class="offers">
+                <div class="dis-flex offers-image">
+                    <img class="imagesize" src="assets/ecommerce/icons8-offer.gif" alt="offres">
+                    <div class="dis-flex offers-txt"> offers
+                    </div>
+                </div>
+                <div class="offers-cards" id="OffersCard">
+                    <div class="offers-card1 mar-left-1per " [ngClass]="{'disabled':!this.contentEditable}"
+                        *ngFor="let offers of addAnewProductrequest.offers;let offindex=index">
+                        <div class="Rob-med-14 offers-heading" contenteditable="true" #offerName
+                            (input)="offers.name = offerName.innerText"> {{offers.name}} </div>
+                        <div contenteditable="true" #offerDescription
+                            (input)="offers.description = offerDescription.innerText" class="Rob-nor-14">
+                            {{offers.description}}
+                        </div>
+                        <div>
+                            <button class="ecommerce-btn-normal" *ngIf="offindex==0 && this.contentEditable"
+                                (click)="addOffer()"> + </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- keyfeatures starts here -->
+            <div class="dis-flex">
+                <div (click)="slide('left','keyFeatures')" class="slide-image">
+                    <img src="assets/ecommerce/left-arrow.svg.svg" alt="scroll the keyfeatures to the left "
+                        style="width: 20px;">
+                </div>
+                <div class="dis-flex  keyFeatures-main" id="keyFeatures">
+                    <div class="Rob-nor-14  keyfeature1" [ngClass]="{'disabled':!this.contentEditable}"
+                        *ngFor="let keyfeatures of addAnewProductrequest.keyfeatures;let featureindex=index">
+                        <div class="mar-top-1per keafeatures-img">
+                            <div *ngIf="this.contentEditable" #featureimg contenteditable="true"
+                                (input)="keyfeatures.imagename=featureimg.innerText"> {{keyfeatures.imagename}} </div>
+                            <div *ngIf="!this.contentEditable">
+                                <img src="assets/amazon-back2.png" alt="" style="height: 100%;width: 100%;"
+                                    title="add image directory">
+                            </div>
+
+                        </div>
+                        <div class="keyfeature-details link" contenteditable="true" #feature
+                            (input)="keyfeatures.featurename=feature.innerText">
+                            {{keyfeatures.featurename}}
+                        </div>
+                        <div>
+                            <button class="ecommerce-btn-normal" *ngIf="featureindex==0 && this.contentEditable"
+                                (click)="addKeyFeatures()"> + </button>
+                        </div>
+                    </div>
+                </div>
+                <div (click)="slide('right','keyFeatures')" class="slide-image">
+                    <img src="assets/ecommerce/left-arrow.svg.svg" alt="view the next listed keyfeatures"
+                        style="width: 20px;">
+                </div>
+            </div>
+            <!-- specifications starts here -->
+            <div class="specifications">
+                <div class="specific-heading Rob-med-18" [ngClass]="{'disabled':!this.contentEditable}"> Specifications
+                </div>
+                <div class="dis-flex specification-details"
+                    *ngFor="let speci of addAnewProductrequest.specifications;let speciIndex=index">
+                    <div class="specific-header Rob-med-14" contenteditable="true" #specititle
+                        (input)="speci.heading =specititle.innerText"> {{speci.heading}} : </div>
+                    <div class="specific-answer Rob-nor-14 mar-left-1per" contenteditable="true" #specianswer
+                        (input)="speci.answer =specianswer.innerText">
+                        {{speci.answer}}
+                    </div>
+                    <div *ngIf="speciIndex==0 && contentEditable">
+                        <button class="ecommerce-btn-normal" (click)="addSpecifications()"> + </button>
+                    </div>
+                </div>
+            </div>
+            <div class="specifications">
+                <div class="specific-heading Rob-med-18">
+                    About this Product
+                </div>
+                <div class="dis-flex specification-details">
+                    <div class="w-100 Rob-nor-14 mar-inline-3per conte" contenteditable="true" #aboutitem
+                        (input)="addAnewProductrequest.aboutthisitem=aboutitem.innerText">
+                        Add More About this Product
+                    </div>
+                </div>
+            </div>
+            <!-- q&As starts here -->
+            <div class="mar-top-1per">
+                <div class="specific-heading Rob-med-18"> Questions </div>
+                <div>
+                    <button class="ecommerce-btn-normal" *ngIf=" this.contentEditable" (click)="addQuestion()"> +
+                    </button>
+                </div>
+                <div class="mar-left-3per Rob-med-14 mar-top-1per pad-right-3per"
+                    *ngFor="let que of addAnewProductrequest.questions;let quein=index">
+                    <div contenteditable="true" #addq (input)="que.question=addq.innerText">
+                        {{que.question}}
+                    </div>
+                    <div class="Rob-nor-14 mar-left-3per" *ngFor="let ans of que.answers" contenteditable="true" #anss
+                        (input)="ans.answer=anss.innerText">{{ans.answer}}
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="product-container" *ngFor="let sellPro of addedProducts">
+        <div class="images-container">
+            <div class="dis-flex ratings-on-image">
+                <div class="col-white bg-green w-4 dis-flex ratings-txt" style="padding-inline: 38%;">
+                    {{sellPro.ratings}} <img class="ratings-img" src="assets/ecommerce/star_ratings.svg" alt="">
+                </div>
+            </div>
+            <div class="dis-flx-jst-cntr" style="width: 100%;">
+                <img *ngIf="!sellPro.defaultImage && sellPro.images.length>0" src="{{sellPro.images[0].imagename}}"
+                    alt="selected image from view" class="selected-image-height">
+                <img *ngIf="sellPro.defaultImage" src="{{sellPro.selectedImage}}" alt="selected image from view"
+                    class="selected-image-height">
+            </div>
+
+            <div class="small-images-main">
+                <div class="sub-images hand" (click)="selectImage(images.imagename ,sellPro)" *ngFor="let images of sellPro.images;let imageindex=index">
+                    <div contenteditable="true" #imagess (input)="images.imagename=imagess.innerText">
+                        <img class="hand" src="{{images.imagename}}" 
+                             style="width: 100%;height: 100%;">
+                    </div>
+                </div>
+            </div>
+            <div class="dis-flex-around mar-left-3per mar-top-3per">
+                <div class="pad-left-3per">
+                    <button class="ecommerce-btn-normal pad-left-3per">Edit Product</button>
+                </div>
+                <div>
+                    <button class="ecommerce-btn-normal pad-left-3per">Save Changes</button>
+                </div>
+            </div>
+        </div>
+        <div class="productdetails">
+            <div>
+                <!-- path -->
+                <div class="product-title" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                    id="disceditable" #description (input)="addedProducts.desciption = description.innerText">
+                    {{sellPro.desciption}}
+                </div>
+                <div class="dis-flex mar-2 link">
+                    <div [ngClass]="{'disabled':this.contentEditablew===false}" contenteditable="true" #w
+                        (input)="addedProducts.store = w.innerText"> visit {{sellPro.store}} </div>
+                    <div class="mar-left-1per"> {{sellPro.ratings}} Ratings </div>
+                    <div class="mar-left-1per"> {{sellPro.totalansweredquestions}} QnAs</div>
+                </div>
+            </div>
+            <hr>
+            <div class="mar-top-1per discout">
+                <div class="price">
+                    <div contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}" #z
+                        (input)="addedProducts.oldprice = z.innerText"> {{sellPro.newprice}} </div>
+                    <del class="old-price col-red opa-07" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                        #newprice1 (input)="addedProducts.newprice = newprice1.innerText">{{sellPro.oldprice}}</del>
+                    <div class="discount-txt" contenteditable="true" [ngClass]="{'disabled':!this.contentEditable}"
+                        #disc (input)="addedProducts.discount = disc.innerText"> {{sellPro.discount}}% off</div>
+                </div>
+                <div class="all-taxes"> Inclusive of all taxes </div>
+                <div class="Rob-med-14">
+                    Total items Available : {{sellPro.itemsLeft}}
+                </div>
+            </div>
+            <hr>
+            <!-- offers starts -->
+            <div class="offers">
+                <div class="dis-flex offers-image">
+                    <img class="imagesize" src="assets/ecommerce/icons8-offer.gif" alt="offres">
+                    <div class="dis-flex offers-txt"> offers
+                    </div>
+                </div>
+                <div class="offers-cards" id="OffersCard">
+                    <div class="offers-card1 mar-left-1per " [ngClass]="{'disabled':!this.contentEditable}"
+                        *ngFor="let offers of sellPro.offers;let offindex=index">
+                        <div class="Rob-med-14 offers-heading" contenteditable="true" #offerName
+                            (input)="offers.name = offerName.innerText"> {{offers.name}} </div>
+                        <div contenteditable="true" #offerDescription
+                            (input)="offers.description = offerDescription.innerText" class="Rob-nor-14">
+                            {{offers.description}}
+                        </div>
+                        <div>
+                            <button class="ecommerce-btn-normal" *ngIf="offindex==0 && this.contentEditable"
+                                (click)="addOffer()"> + </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- keyfeatures starts here -->
+            <div class="dis-flex">
+                <div (click)="slide('left',sellPro.productid)" class="slide-image">
+                    <img src="assets/ecommerce/left-arrow.svg.svg" alt="scroll the keyfeatures to the left "
+                        style="width: 20px;">
+                </div>
+                <div class="dis-flex  keyFeatures-main" id="{{sellPro.productid}}">
+                    <div class="Rob-nor-14  keyfeature1" [ngClass]="{'disabled':!this.contentEditable}"
+                        *ngFor="let keyfeatures of sellPro.keyfeatures;let featureindex=index">
+                        <div class="mar-top-1per keafeatures-img" contenteditable="true">
+                            <div *ngIf="this.contentEditable" #featureimg
+                                (input)="keyfeatures.imagename=featureimg.innerText"> {{keyfeatures.imagename}} </div>
+                            <div *ngIf="!this.contentEditable">
+                                <img src="{{keyfeatures.imagename}}" alt="" style="height: 100%;width: 100%;"
+                                    title="add image directory">
+                            </div>
+
+                        </div>
+                        <div class="keyfeature-details link" contenteditable="true" #feature
+                            (input)="keyfeatures.featurename=feature.innerText">
+                            {{keyfeatures.featurename}}
+                        </div>
+                        <div>
+                            <button class="ecommerce-btn-normal" *ngIf="featureindex==0 && this.contentEditable"
+                                (click)="addKeyFeatures()"> + </button>
+                        </div>
+                    </div>
+                </div>
+                <div (click)="slide('right',sellPro.productid)" class="slide-image">
+                    <img src="assets/ecommerce/left-arrow.svg.svg" alt="view the next listed keyfeatures"
+                        style="width: 20px;">
+                </div>
+            </div>
+            <!-- specifications starts here -->
+            <div class="specifications">
+                <div class="specific-heading Rob-med-18" [ngClass]="{'disabled':!this.contentEditable}"> Specifications
+                </div>
+                <div class="dis-flex specification-details"
+                    *ngFor="let speci of sellPro.specifications;let speciIndex=index">
+                    <div class="specific-header Rob-med-14" contenteditable="true" #specititle
+                        (input)="speci.heading =specititle.innerText"> {{speci.heading}} : </div>
+                    <div class="specific-answer Rob-nor-14 mar-left-1per" contenteditable="true" #specianswer
+                        (input)="speci.answer =specianswer.innerText">
+                        {{speci.answer}}
+                    </div>
+                    <div *ngIf="speciIndex==0 && contentEditable">
+                        <button class="ecommerce-btn-normal" (click)="addSpecifications()"> + </button>
+                    </div>
+                </div>
+            </div>
+            <div class="specifications">
+                <div class="specific-heading Rob-med-18">
+                    About this Product
+                </div>
+                <div class="dis-flex specification-details">
+                    <div class="w-100 Rob-nor-14 mar-inline-3per conte" contenteditable="true" #aboutitem
+                        (input)="addedProducts.aboutthisitem=aboutitem.innerText">
+                        {{sellPro.aboutthisitem}}
+                    </div>
+                </div>
+            </div>
+            <!-- Ratings and reviews starts here -->
+            <div class=" mar-top-1per">
+                <div class="ratings-and-reviews-main">
+                     <div class="pd-10 txt-centre">
+                        <div class="ratings-given Rob-med-16"> Ratings given :{{sellPro.ratingsgiveby}}</div>
+                        <div class="Rob-med-16"> Reviews :{{sellPro.productreviews.length}}</div>
+                    </div>
+                    <div class="main-ratings-starts pad-left-3per pad-right-3per"
+                        *ngFor="let reviews of sellPro.productreviews">
+                        <div class="dis-flex ali-items-centr">
+                            <div class="bor-50per profile-img-brdr">
+                                <img src="assets/ecommerce/myphoto.JPG" alt="reviewers profile"
+                                    class="imagesize bor-50per">
+                            </div>
+                            <div class="Rob-med-14 mar-left-1per dis-flex w-100">
+                                <div> {{reviews.overallExperience}}</div>
+                                <div class="ratings-img1">
+                                    {{reviews.ratings}} <img src="assets/ecommerce/star_ratings.svg" alt=""
+                                        style="margin-bottom: 3px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Rob-nor-14 mar-top-1per reviews-txt">
+                            {{reviews.review}}
+                        </div>
+                        <div class="mar-top-1per user-reviews-disc opa-07">
+                            <div class="Rob-med-14 opa-07 dis-flex"> {{reviews.username}}
+                                <img src="assets/ecommerce/green-tick.svg" alt="" style="width: 15px;">
+                                <div class="noshow"> Certified Buyer , {{reviews.date}}</div>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-comment-dots hand "></i>
+                                <span class="Rob-nor-10"> {{reviews.replycount}} </span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-reply"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-thumbs-up hand"></i>
+                                <span class="Rob-nor-10">
+                                    {{reviews.likescount}}
+                                </span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-thumbs-down  hand"></i>
+                                <span class="Rob-nor-10">
+                                    {{reviews.dislikescount}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="replies mar-left-3per mar-top-1per">
+                            <div>
+                                <div class="w-100">
+                                    <textarea class="replies-txt" name="replies-txt" id="replied" cols="30" rows="4"
+                                        placeholder="Reply to the user"></textarea>
+                                </div>
+                                <div class="link mar-top-1per">
+                                    <button class="transparent-btn Rob-med-14"> Replies</button>
+                                </div>
+                                <div *ngFor="let repli of reviews.replies">
+                                    <div class="dis-flex ali-items-centr mar-top-1per">
+                                        <div class="bor-50per profile-img-brdr1">
+                                            <img src="assets/ecommerce/myphoto.JPG" alt="reviewers profile"
+                                                class="imagesize bor-50per">
+                                        </div>
+                                        <div class="Rob-med-12 mar-left-1per dis-flex w-100"> {{repli.username}}</div>
+                                    </div>
+                                    <div class="Rob-nor-14  reviews-txt mar-left-8per">
+                                        {{repli.reply}}
+                                    </div>
+                                    <div class="mar-top-1per user-reviews-disc-replies opa-07">
+                                        <div>
+                                            <i class="fa-solid fa-reply"></i>
+                                        </div>
+                                        <div>
+                                            <i class="fa-solid fa-thumbs-up hand"></i>
+                                            <span class="Rob-nor-10">
+                                                {{repli.likescount1}}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i class="fa-solid fa-thumbs-down  hand"></i>
+                                            <span class="Rob-nor-10">
+                                                {{repli.dislikescount1}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- q&As starts here -->
+            <div class="mar-top-1per">
+                <div class="specific-heading Rob-med-18"> 22 Answered Questions </div>
+                <div class="Rob-med-14 specific-heading"
+                    *ngFor="let qnas of sellPro.questions;let qindex=index">
+                    <div>
+                        {{qindex+1}}) {{qnas.question}}
+                    </div>
+                    <div class="Rob-nor-14 mar-left-3per mar-btm-1per" *ngFor="let ans of qnas.answers">
+                        {{ans.answer}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
