@@ -1,0 +1,61 @@
+<div style="max-width: 100%;overflow: hidden;">
+    <app-menu></app-menu>
+</div>
+<div  class="pad-inl-8per " [ngClass]="{'changeMode':changeLightmode}">
+    <div class="pt-tp-5">
+        <div class="ratings-and-reviews-main">
+            <div class="pd-10 txt-centre">
+                <div class="txt-end hand" (click)="chooseMode()">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </div>
+
+                <div class="Rob-med-16">
+
+                    <marquee behavior="" direction="">You can  Give Your Feedback About UI/Enhancement ...</marquee>
+
+                </div>
+                <div class="ratings-given Rob-med-16"> Ratings given :{{feedBacks.length}}</div>
+                <div class="Rob-med-16"> Reviews :{{feedBacks.length}}</div>
+            </div>
+            <div class="main-ratings-starts pad-left-3per pad-right-3per"
+                *ngFor="let reviews of feedBacks">
+                <div class="dis-flex ali-items-centr">
+                    <div>
+                        <div class="imagesize  Rob-med-16  profile-img-brdr"
+                         [ngClass]="{
+                            'profileViolet':reviews.username.substring(0,1)<='D' && reviews.username.substring(0,1)>='A',
+                            'profilePink':reviews.username.substring(0,1)<='H' && reviews.username.substring(0,1)>='E',
+                            'profileYellow':reviews.username.substring(0,1)<='L' && reviews.username.substring(0,1)>='I',
+                            'profileOrchid':reviews.username.substring(0,1)<='P' && reviews.username.substring(0,1)>='M',
+                            'profiledarkpink':reviews.username.substring(0,1)<='T' && reviews.username.substring(0,1)>='Q',
+                            'profilelitePink':reviews.username.substring(0,1)<='Z' && reviews.username.substring(0,1)>='U'
+                            }">
+                            {{reviews.username.substring(0,2)| uppercase}}
+                        </div>
+                    </div>
+                    <div class="Rob-med-14 mar-left-1per dis-flex-between w-100" >
+                        <div> {{reviews.username}}</div>
+                        <div class="ratings-img1" [ngClass]="{
+                            'onestar':reviews.ratings<=1,
+                            'twostar':reviews.ratings==2,
+                            'threestar':reviews.ratings==3,
+                            'fourstar':reviews.ratings==4,
+                            'fivestar':reviews.ratings==5
+                            }">
+                            {{reviews.ratings}} <img src="assets/ecommerce/star_ratings.svg" alt=""
+                                style="margin-bottom: 3px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="Rob-nor-14 mar-top-1per reviews-txt">
+                    {{reviews.feedback}}
+                </div>
+                <div class="mar-top-1per user-reviews-disc opa-07">
+                    <div class="Rob-med-14 opa-07 dis-flex">
+                        <div class="noshow"> {{reviews.date | date:'dd-M-yyyy'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

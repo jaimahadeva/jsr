@@ -1,0 +1,82 @@
+<div style="max-width: 100%;overflow: hidden;">
+  <app-menu></app-menu>
+</div>
+<div class="orders-main-page w-100">
+  <div class="main-orders-container" *ngFor="let order of AllOrders">
+    <div class="images-order-container">
+      <div class="ordered-image">
+        <img src="{{order.images[0].imagename}}" alt="buyed product" class="imagesize">
+      </div>
+      <div class="product-description mar-top-1per mar-left-8per"> {{order.desciption}} </div>
+      <div class="Rob-med-16 mar-left-8per"> {{order.newprice}}</div>
+      <div class="w-80 mar-left-8per mar-top-2per pad-btm-5per">
+        <button class="ecommerce-shadowbtn-org bor-rad-10px w-100">Order Again </button>
+      </div>
+ </div>
+    <div class="mar-left-3per mar-top-3per mar-inline-3per w-75">
+      <div class="dis-flx-jst-cntr hand">
+        <span class="fa fa-star" [ngClass]="{'ratings-selected':order.newRatings>=1}"
+          (click)="selectRatings(order,1)"></span>
+        <span class="fa fa-star" [ngClass]="{'ratings-selected':order.newRatings>=2}"
+          (click)="selectRatings(order,2)"></span>
+        <span class="fa fa-star" [ngClass]="{'ratings-selected':order.newRatings>=3}"
+          (click)="selectRatings(order,3)"></span>
+        <span class="fa fa-star" [ngClass]="{'ratings-selected':order.newRatings>=4}"
+          (click)="selectRatings(order,4)"></span>
+        <span class="fa fa-star" [ngClass]="{'ratings-selected':order.newRatings>=5}"
+          (click)="selectRatings(order,5)"></span>
+      </div>
+      <div>
+        <div class="stepper-wrapper w-100 mar-top-2per">
+          <div class="stepper-item  completed">
+            <div class="step-counter">
+              <img src="assets/ecommerce/green-tick.svg" alt="">
+            </div>
+            <div class="step-name txt-centre pd-6px"> Ordered {{order.productname}} By
+              {{this.preptalkservice.userDetails.firstName}} , On {{order.Statuses.ordereddate | date :'dd MMM yyyy'}} </div>
+          </div>
+          <div class="stepper-item"
+          [ngClass]="{'completed':order.orderaccepteddate!==''}">
+            <div class="step-counter"><img src="assets/ecommerce/green-tick.svg" alt=""></div>
+            <div class="step-name txt-centre pd-6px">Your order is accepted By {{order.store}} on
+              {{order.Statuses.orderaccepteddate | date :'dd MMM yyyy'}} </div>
+          </div>
+          <div class="stepper-item active">
+            <div class="step-counter"><img src="assets/ecommerce/green-tick.svg" alt=""></div>
+            <div class="step-name txt-centre pd-6px">Order Shipped to our delivery Partner {{order.Statuses.shippingpartner}} on
+              {{order.Statuses.shippeddate | date :'dd MMM yyyy'}}</div>
+          </div>
+          <div class="stepper-item">
+            <div class="step-counter"><img src="assets/ecommerce/green-tick.svg" alt=""></div>
+            <div class="step-name txt-centre pd-6px ">Delivered by {{order.Statuses.deliverypersonname}} on
+              {{order.Statuses.delivereddate | date :'dd MMM yyyy'}} to the {{this.preptalkservice.userDetails.firstName}} </div>
+          </div>
+ </div>
+      </div>
+      <div class="ratings-and-reviews">
+        <div class="mar-top-3per">
+          <label for="OverAllExperiece" title="OverAllExperiece"></label>
+          <div class="dis-flx-jst-cntr">
+            <input type="text" placeholder="Your Overall Experiece" id="OverAllExperiece"
+              [(ngModel)]="order.overallExperience">
+          </div>
+          <textarea name="review" id="Review" [(ngModel)]="order.review" cols="4" rows="4" class="w-90"
+            placeholder="Give Brief review ">
+                   </textarea>
+          <div class="dis-flx-jst-cntr">
+            <div>
+              <button class="ecommerce-shadowbtn-blue bor-rad-10px mar-top-3per"
+                [ngClass]="{'disabled-opac50':!order.disabledReview}" (click)="SubmitReview(order)">Give
+                Reviews</button>
+            </div>
+          </div>
+        </div>
+ </div>
+ </div>
+ </div>
+</div>
+<div *ngIf="reviewSubmitted" class="success-message">
+  <div class="dis-flx-jst-cntr Rob-med-14">
+    Thank You For Giving the ratings !
+  </div>
+</div>

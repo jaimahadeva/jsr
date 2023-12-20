@@ -1,0 +1,58 @@
+<div style="max-width: 100%;overflow: hidden;">
+  <app-menu></app-menu>
+</div>
+<div class="dis-flex w-100 carts-main-container">
+  <div class="w-25 webonly carts-sidenav mar-top-1per bg-white mar-left-1per ">
+    <div class="pad-left-3per">
+      <div class="pd-20 Rob-med-16">
+        <div>
+          Your total items :{{this.AllCarts.length}}
+        </div>
+        <div class="mar-top-1per">
+          total price : {{this.Totalprice}}
+        </div>
+      </div>
+      <hr>
+      <div class="pad-left-3per">
+        <div>
+          <button class="ecommerce-btn-normal btn-width"> <span> Order now</span> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cartsmain">
+    <div class=" cards-main">
+      <div class="productdetails  active-card hand " *ngFor="let carts of AllCarts">
+        <div class="productphotos-main">
+          <div class="image-card">
+            <img src="{{carts.images[0].imagename}}" class="imagesizing" alt="{{'earphones'}}">
+          </div>
+          <div class="for-mobile-width-pro-details">
+            <div class="producttitle">
+              {{carts.desciption}}
+            </div>
+            <div class="mar-top-3per mar-left-5per ">
+              <div class="Rob-med-16 "> {{carts.newprice}} </div>
+              <div class="Rob-med-10 col-red" *ngIf="carts.itemsLeft==0"> Currently unavailable </div>
+              <div class="Rob-med-10 col-green" *ngIf="carts.itemsLeft>0"> Available in Stocks </div>
+              <div class="Rob-med-10"> Delete</div>
+              <div class="mobileonly" [ngClass]="{'disabled':carts.itemsLeft==0}">
+                <div>
+                  <button class="ecommerce-btn-normal btn-width" [disabled]="carts.itemsLeft==0"
+                    (click)="buytheProduct(carts)"> <span> Buy Now</span> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="webonly">
+        <div class="action-btns webonly" [ngClass]="{'disabled-opac50':carts.itemsLeft==0}">
+          <div>
+            <button class="ecommerce-btn-normal btn-width" [disabled]="carts.itemsLeft==0"
+              (click)="buytheProduct(carts)"> <span> Buy Now</span> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
